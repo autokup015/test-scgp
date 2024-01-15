@@ -1,0 +1,44 @@
+@import "./custom.scss";
+
+//  Global css
+
+// ! btn
+
+.g-btn {
+  &.blue {
+    color: blue;
+  }
+}
+
+// ! input
+
+.g-form {
+  .input {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .text {
+      margin-right: 5px;
+    }
+
+    .icon {
+      position: absolute;
+      cursor: pointer;
+      right: 5px;
+    }
+  }
+}
+
+// ! text
+
+.g-text {
+  &.error {
+    font-size: 14px;
+    color: red;
+  }
+
+  &.green {
+    color: green;
+  }
+}
