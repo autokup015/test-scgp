@@ -35,8 +35,10 @@
           >
             <b-form-input
               type="number"
+              :name="`A${count}`"
               :value="handdleQTY(count, item)"
               @change="handdleChangeQTY(count, item, $event)"
+              @keydown.tab.prevent="handdleTapKey(count, item)"
             >
             </b-form-input>
             <!-- value : {{handdleQTY(count, item)}} -->
@@ -103,6 +105,22 @@ export default {
         return findData.QTY;
       } else {
         return 0;
+      }
+    },
+    handdleTapKey(index, item) {
+      const getInput = document.getElementsByName(`A${index}`);
+      const positionInput = parseInt(item.name.replace("MAT", ""));
+
+      if (positionInput == this.items.length) {
+        // หมดแถวแล้ว
+
+        const newInputFocus = document.getElementsByName(`A${index + 1}`);
+
+        if (newInputFocus.length > 0) {
+          newInputFocus[0].focus();
+        }
+      } else {
+        getInput[positionInput].focus();
       }
     },
     calculateSummary(data) {
